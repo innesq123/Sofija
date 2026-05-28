@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofija Date Antrag</title>
+
+<style>
+    body{
+        margin:0;
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#ff5f6d,#ffc371);
+        font-family:Arial, sans-serif;
+        overflow:hidden;
+    }
+
+    .box{
+        background:white;
+        width:90%;
+        max-width:700px;
+        border-radius:25px;
+        padding:40px;
+        text-align:center;
+        box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    h1{
+        font-size:40px;
+        margin-bottom:10px;
+        color:#ff3b6b;
+    }
+
+    #question{
+        font-size:28px;
+        margin:30px 0;
+        min-height:90px;
+        color:#222;
+    }
+
+    .emoji{
+        font-size:70px;
+    }
+
+    .buttons{
+        display:flex;
+        gap:15px;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    button{
+        border:none;
+        padding:15px 25px;
+        border-radius:15px;
+        font-size:18px;
+        cursor:pointer;
+        transition:0.2s;
+        font-weight:bold;
+    }
+
+    button:hover{
+        transform:scale(1.08);
+    }
+
+    .a{background:#4CAF50;color:white;}
+    .b{background:#F44336;color:white;}
+    .c{background:#2196F3;color:white;}
+</style>
+</head>
+<body>
+
+<div class="box">
+
+    <div class="emoji" id="emoji">🗿</div>
+
+    <h1>Sofija.exe</h1>
+
+    <div id="question">
+        Sofija… gehen wir auf ein Date oder muss ich anfangen Gzuz Zitate in meine Story zu posten?
+    </div>
+
+    <div class="buttons" id="buttons">
+        <button class="a" onclick="next(1)">Date 😌</button>
+        <button class="b" onclick="next(2)">Nein 🤨</button>
+        <button class="c" onclick="next(3)">Wer bist du überhaupt? 💀</button>
+    </div>
+
+</div>
+
+<script>
+
+function next(x){
+
+    const q = document.getElementById("question");
+    const b = document.getElementById("buttons");
+    const e = document.getElementById("emoji");
+
+    if(x==1){
+        q.innerHTML = "Perfekt. Welche Version von mir willst du treffen?";
+        e.innerHTML = "😎";
+
+        b.innerHTML = `
+            <button class="a" onclick="next(4)">Charmant 😌</button>
+            <button class="b" onclick="next(5)">Komplett geistig umnachtet 🦍</button>
+            <button class="c" onclick="next(6)">Hungrig und broke 🍟</button>
+        `;
+    }
+
+    if(x==2){
+        q.innerHTML = "Okay… dann hör ich halt auf nachts traurig aus dem Fenster zu schauen wie ein türkischer Serienhauptcharakter.";
+        e.innerHTML = "🚬";
+
+        b.innerHTML = `
+            <button class="a" onclick="reset()">Doch Date 😭</button>
+        `;
+    }
+
+    if(x==3){
+        q.innerHTML = "Der Typ der seit 2 Stunden überlegt ob 'hey' zu trocken klingt.";
+        e.innerHTML = "🧠";
+
+        b.innerHTML = `
+            <button class="a" onclick="next(1)">Respektabel 😌</button>
+            <button class="b" onclick="next(7)">Klingt nach FBI Beobachtung 🚨</button>
+        `;
+    }
+
+    if(x==4){
+        q.innerHTML = "Lüge. Ich stolpere wahrscheinlich beim Reinkommen über den Teppich.";
+        e.innerHTML = "🕴️";
+
+        b.innerHTML = `
+            <button class="a" onclick="ending(1)">Trotzdem Date 😂</button>
+        `;
+    }
+
+    if(x==5){
+        q.innerHTML = "Sehr gut. Dann bell ich random Kinder an und bestell 14 Saucen.";
+        e.innerHTML = "🦍";
+
+        b.innerHTML = `
+            <button class="a" onclick="ending(2)">Traummann 😍</button>
+        `;
+    }
+
+    if(x==6){
+        q.innerHTML = "Romantischer Abend bei McDonalds. Wenn's ernst wird nehm ich sogar Curly Fries.";
+        e.innerHTML = "🍔";
+
+        b.innerHTML = `
+            <button class="a" onclick="ending(3)">Heiratsmaterial 💍</button>
+        `;
+    }
+
+    if(x==7){
+        q.innerHTML = "Das sagen sie alle bevor sie sich verlieben.";
+        e.innerHTML = "🗿";
+
+        b.innerHTML = `
+            <button class="a" onclick="ending(4)">Fair enough 😂</button>
+        `;
+    }
+}
+
+function ending(y){
+
+    const q = document.getElementById("question");
+    const b = document.getElementById("buttons");
+    const e = document.getElementById("emoji");
+
+    if(y==1){
+        q.innerHTML = "Date erfolgreich. Wahrscheinlichkeit peinlicher Momente: 98%.";
+        e.innerHTML = "🏆";
+    }
+
+    if(y==2){
+        q.innerHTML = "Ihr habt gemeinsam einer Taube hinterhergeschrien. Wahre Liebe.";
+        e.innerHTML = "🐦";
+    }
+
+    if(y==3){
+        q.innerHTML = "Sie sagte ja zu Curly Fries. Bruder das ist praktisch Verlobung.";
+        e.innerHTML = "💍";
+    }
+
+    if(y==4){
+        q.innerHTML = "Sofija hat dich akzeptiert. Die Menschheit ist geheilt.";
+        e.innerHTML = "☀️";
+    }
+
+    b.innerHTML = `
+        <button class="a" onclick="reset()">Nochmal spielen 🔁</button>
+    `;
+}
+
+function reset(){
+    location.reload();
+}
+
+</script>
+
+</body>
+</html>
